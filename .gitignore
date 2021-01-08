@@ -1,3 +1,4 @@
 .idea/
 .test.c.swp
 a.out
+a.out.dSYM/
