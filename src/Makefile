@@ -6,8 +6,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_printf.c ft_parser.c
 
-OBJ = $(SRC:.c=.o)
+HEADER = ft_printf.h
 
+OBJ = $(SRC:.c=.o)
 
 %.o:%.c
 	$(CC) $(FLAGS) -c $< -o $@
@@ -19,14 +20,14 @@ $(NAME): $(OBJ) ft_printf.h
 	ar rcs $(NAME) $(OBJ) libft/*.o
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
 norme:
-	@norminette $(SRC) ../libft/
+	norminette $(SRC) $(HEADER) ../libft/
 
 .PHONY: all clean fclean re norme
