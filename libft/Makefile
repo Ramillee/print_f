@@ -6,15 +6,13 @@
 #    By: atweek <atweek@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/29 22:32:18 by atweek            #+#    #+#              #
-#    Updated: 2020/11/18 17:41:14 by atweek           ###   ########.fr        #
+#    Updated: 2021/01/09 17:12:30 by atweek           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = gcc
-
-SO = libft.so
 
 CFLAGS = -Wall -Wextra -Werror -I. -c
 
