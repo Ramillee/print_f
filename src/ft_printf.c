@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:48:01 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/09 17:13:30 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/09 18:21:25 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_printf(const char *str, ...)
 	va_start (argptr, str);
 	//-------------
 	
-	count = pre_parser(str,&argptr);
+	count = pre_parser(str,argptr);
 	
 	//-------------
 	va_end(argptr);

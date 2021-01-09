@@ -16,14 +16,16 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) ft_printf.h
-	make -C libft/
-	ar rcs $(NAME) $(OBJ) libft/*.o
+	make -C ../libft/
+	ar rcs $(NAME) $(OBJ) ../libft/*.o
 
 clean:
 	rm -f $(OBJ)
+	rm -f ../libft/*.o
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f ../libft/*.a
 
 re: fclean all
 

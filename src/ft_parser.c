@@ -6,14 +6,14 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/09 17:13:35 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/09 18:21:08 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-int parser(const char *str,va_list *argptr)
+int parser(const char *str,va_list argptr)
 {
 	char *pstr;
 
@@ -39,7 +39,7 @@ int parser(const char *str,va_list *argptr)
 	return (pstr - str);
 }
 
-int pre_parser(const char *str,va_list *argptr)
+int pre_parser(const char *str,va_list argptr)
 {
 	int i;
 	int count;
@@ -50,7 +50,7 @@ int pre_parser(const char *str,va_list *argptr)
 	{
 		while (str[i] != '%')
 			count += write(1,&str[i++],1);
-		count += parser(&str[i++],&argptr);
+		count += parser(&str[i++],argptr);
 	}
 	return (count);
 }
