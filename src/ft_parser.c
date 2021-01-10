@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/10 20:43:27 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/11 00:58:11 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,13 @@
 	- символ типа преобразования [type].
 */
 
-int null_struct(t_pars *st_pars)
+int check_type(t_pars *st_pars,const char *str)
 {
-	st_pars->minus=0;
-	st_pars->zero=0;
-	st_pars->width=0;
-	st_pars->prec=0;
-	st_pars->type=0;
-	return (0);
+	st_pars->type = (int) *str;
+	return (1);
 }
 
-int	check_flags(t_pars *st_pars,va_list argptr,const char *str)
+int	check_flags(t_pars *st_pars,const char *str)
 {
 	int i;
 
@@ -52,51 +48,81 @@ int	check_flags(t_pars *st_pars,va_list argptr,const char *str)
 	return (i);
 }
 
-check_width(t_pars *st_pars,va_list argptr,const char *str)
+
+int check_prec(t_pars *st_pars,va_list argptr,const char *str)
 {
 	int i;
-	int j;
-	char *str_num[ft_strlen(str)];
+	int num;
+
+	i = 1;
+	if (str[i] == '*')
+	{
+		num = va_arg(argptr,int);
+		if (num >= 0)
+			st_pars->prec = num;
+		else
+		{
+			st_pars->prec = num * -1;
+			st_pars->minus = 1;
+		}
+		i++;
+	}
+	else
+		st_pars->prec = ft_atoi(str);
+	while (ft_isdigit(str[i]))
+	{
+		i++;
+	}
+	return (i);
+}
+
+int	check_width(t_pars *st_pars,va_list argptr,const char *str)
+{
+	int i;
+	int num;
 
 	i = 0;
-	j = 0;
 	if (str[i] == '*')
-		st_pars->width = va_arg(argptr,int);//если - то + а минус флаг
+	{
+		num = va_arg(argptr,int);
+		if (num >= 0)
+			st_pars->width = num;
+		else
+		{
+			st_pars->width = num * -1;
+			st_pars->minus = 1;
+		}
+		i++;
+	}
 	else
-		while (ft_isdigit(str[i]) )
-			i++;
-	ft_strlcpy(str_num,str,i);
-	st_pars->width = ft_atoi(str_num);
+		st_pars->width = ft_atoi(str);
+	while (ft_isdigit(str[i]))
+	{
+		i++;
+	}
+	
 	return (i);
 }
 
 int parser(const char *str,va_list argptr)
 {
 	int text_shift;
-	// (void) str;
-	// (void) argptr;
 	t_pars st_pars;
-	
-	null_struct(&st_pars);
-	text_shift = check_flags(&st_pars,argptr,str);
-	check_width(&st_pars,argptr,&str[text_shift]);
-	return (0);
-}
 
-int pre_parser(const char *str,va_list argptr)
-{
-	int i;
-	int count;
-	
-	i = 0;
-	count = 0;
-	while(str[i] != '\0')
-	{
-		if (str[i] != '%')
-			count += write(1,&str[i],1);
-		else
-			count += parser(&str[i],argptr);
-		i++;
-	}
-	return (count);
+	st_pars.minus=0;
+	st_pars.zero=0;
+	st_pars.width=0;
+	st_pars.prec=0;
+	st_pars.type=0;
+	text_shift = check_flags(&st_pars,str);
+	text_shift += check_width(&st_pars,argptr,&str[text_shift]);
+	text_shift += check_prec(&st_pars,argptr,&str[text_shift]);
+	text_shift += check_type(&st_pars,&str[text_shift]);
+
+	printf("zero -> %d\n",st_pars.zero);
+	printf("minus -> %d\n",st_pars.minus);
+	printf("prec -> %d\n",st_pars.prec);
+	printf("width -> %d\n",st_pars.width);
+	printf("type -> %d\n",st_pars.type);
+	return (text_shift);
 }
