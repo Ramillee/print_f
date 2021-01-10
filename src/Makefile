@@ -10,8 +10,8 @@ HEADER = ft_printf.h
 
 OBJ = $(SRC:.c=.o)
 
-%.o:%.c
-	$(CC) $(FLAGS) -c $< -o $@
+# %.o:%.c
+# 	$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 
@@ -21,15 +21,15 @@ $(NAME): $(OBJ) ft_printf.h
 
 clean:
 	rm -f $(OBJ)
-	rm -f ../libft/*.o
+	make clean -C ../libft/
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f ../libft/*.a
+	make fclean -C ../libft/
 
 re: fclean all
 
-norme:
+norm:
 	norminette $(SRC) $(HEADER) ../libft/
 
 .PHONY: all clean fclean re norme
