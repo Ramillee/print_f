@@ -10,5 +10,6 @@
 
 int main(void)
 {
-	printf("%5.c",'a');
+	printf("%10.5s","qwertyuio");
+
 }
