@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:04:24 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/11 00:33:31 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/11 16:46:23 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,9 @@
 
 int main(void)
 {
-	ft_printf("qwer\n%-10.*d\n",10,10);
+	char str[] = "|%5.5c|";
+	ft_printf("my --> ");
+	ft_printf(str,'a');
+	printf("\nof --> ");
+	printf(str,'a');
 }

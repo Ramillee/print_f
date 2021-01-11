@@ -10,6 +10,5 @@
 
 int main(void)
 {
-	int num = 23;
-	printf("%-*d",10,num);
+	printf("%5.c",'a');
 }
