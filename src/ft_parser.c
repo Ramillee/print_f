@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/12 17:28:24 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/12 17:52:06 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int check_prec(t_pars *st_pars, va_list argptr, const char *str)
 	int num;
 
 	// printf("prec --> %s\n",str);
-	i = 1;
+	i = 0;
+	(str[i] == '.') ? i++ : i;
 	if (str[i] == '*')
 	{
 		num = va_arg(argptr,int);
@@ -70,13 +71,13 @@ int check_prec(t_pars *st_pars, va_list argptr, const char *str)
 		}
 		i++;
 	}
-	else if (ft_isdigit(*str))
-		st_pars->width = ft_atoi(str);
+	else if (ft_isdigit(str[i]))
+		st_pars->prec = ft_atoi(&str[i]);
 	while (ft_isdigit(str[i]))
 	{
 		i++;
 	}
-	return ((st_pars->prec >= 0) ? i : 0);
+	return ((st_pars->prec > 0) ? i : 0);
 }
 
 int	check_width(t_pars *st_pars, va_list argptr, const char *str)
@@ -98,8 +99,8 @@ int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 		}
 		i++;
 	}
-	else if (ft_isdigit(*str))
-		st_pars->width = ft_atoi(str);
+	else if (ft_isdigit(str[i]))
+		st_pars->width = ft_atoi(&str[i]);
 	while (ft_isdigit(str[i]))
 	{
 		i++;

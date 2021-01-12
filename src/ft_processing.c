@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   processing.c                                       :+:      :+:    :+:   */
+/*   ft_processing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:33:51 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/12 00:01:19 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/12 20:42:47 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,55 +68,4 @@ int		c_processing(t_pars *st_pars, va_list argptr)
 	if (st_pars->zero == -1 && st_pars->minus == -1)
 		return(write(1,&c,1));
 	return (i);
-}
-
-int		s_processing(t_pars *st_pars, va_list argptr)
-{
-	int		i;
-	char	*str;
-	int		strlen;
-	
-	i = 0;
-	str = va_arg(argptr,char *);
-	strlen = ft_strlen(str);
-	// printf("--%s--\n",str);
-	if (st_pars->minus == 1)
-	{
-		if (st_pars->prec != -1 && st_pars->width != -1)
-		{
-			while (i < st_pars->prec)
-				write(1,&str[i++],1);
-			while (i++ < st_pars->width)
-				write(1," ",1);
-			return (st_pars->width);
-		}
-		else
-		{
-			write(1,str,ft_strlen(str));
-			return(ft_strlen(str));
-		}
-		
-	}
-	if (st_pars->zero == 1)
-	{
-		if (st_pars->prec != -1 && st_pars->width != -1)
-		{
-		while (i++ < st_pars->width)
-			write(1,"0",1);
-		while (i < st_pars->prec)
-			write(1,&str[i++],1);
-		return (st_pars->width);
-		}
-		else
-		{
-			write(1,str,ft_strlen(str));
-			return(ft_strlen(str));
-		}
-	}
-	if (st_pars->zero == -1 && st_pars->minus == -1)
-	{
-		write(1,str,ft_strlen(str));
-		return(ft_strlen(str));
-	}
-	return (st_pars->width);
 }

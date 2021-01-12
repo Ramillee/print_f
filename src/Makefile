@@ -10,8 +10,8 @@ HEADER = ft_printf.h
 
 OBJ = $(SRC:.c=.o)
 
-# %.o:%.c
-# 	$(CC) $(FLAGS) -c $< -o $@
+%.o:%.c
+	$(CC) $(FLAGS) -c $< -o $@
 
 all: $(NAME)
 
