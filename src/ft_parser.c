@@ -6,9 +6,10 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/12 17:17:11 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/12 17:28:24 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
@@ -69,8 +70,8 @@ int check_prec(t_pars *st_pars, va_list argptr, const char *str)
 		}
 		i++;
 	}
-	else
-		st_pars->prec = ft_atoi(str);
+	else if (ft_isdigit(*str))
+		st_pars->width = ft_atoi(str);
 	while (ft_isdigit(str[i]))
 	{
 		i++;
@@ -92,12 +93,12 @@ int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 			st_pars->width = num;
 		else
 		{
-			st_pars->width = num * -1;
+			st_pars->width != -1 ? st_pars->width = num * -1 : -1;
 			st_pars->minus = 1;
 		}
 		i++;
 	}
-	else
+	else if (ft_isdigit(*str))
 		st_pars->width = ft_atoi(str);
 	while (ft_isdigit(str[i]))
 	{

@@ -6,9 +6,10 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 17:04:24 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/12 16:52:31 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/12 17:23:10 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include <stdio.h>
 #include "ft_printf.h"
@@ -23,4 +24,6 @@ int main(void)
 	// // printf(str,"qwer");
 	printf("|%5.5s|\n","abc");
 	ft_printf("|%5.5s|\n","abc");
+	printf("|aaa %.3s|\n","abc");
+	ft_printf("|aaa %.3s|\n","abc");
 }
