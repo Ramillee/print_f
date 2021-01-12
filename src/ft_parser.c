@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/11 20:25:35 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/12 17:17:11 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int check_prec(t_pars *st_pars, va_list argptr, const char *str)
 	{
 		i++;
 	}
-	return ((st_pars->prec == 1) ? i : 0);
+	return ((st_pars->prec >= 0) ? i : 0);
 }
 
 int	check_width(t_pars *st_pars, va_list argptr, const char *str)
@@ -104,7 +104,7 @@ int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 		i++;
 	}
 	
-	return ((st_pars->width == 1) ? i : 0);
+	return ((st_pars->width  >= 0) ? i : 0);
 }
 
 int parser(const char *str,va_list argptr)
@@ -113,6 +113,7 @@ int parser(const char *str,va_list argptr)
 	int		count;
 	t_pars st_pars;
 
+	text_shift = 0;
 	st_pars.minus=-1;
 	st_pars.zero=-1;
 	st_pars.width=-1;
