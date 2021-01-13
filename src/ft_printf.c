@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:48:01 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/11 00:36:49 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/13 20:14:08 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int pre_parser(const char *str,va_list argptr)
 {
 	int i;
 	int count;
-	int	temp;
+	int	temp = 0;
 	
 	i = 0;
 	count = 0;
@@ -27,7 +27,7 @@ int pre_parser(const char *str,va_list argptr)
 			count += write(1,&str[i++],1);
 		else
 		{
-			temp = parser(&str[i],argptr);
+			temp += parser(&str[i],argptr);
 			i += temp;
 			count += temp;
 		}

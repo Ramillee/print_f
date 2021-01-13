@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:55:23 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/11 19:41:18 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/13 17:34:55 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_pars
 	int		width;
 	int		prec;
 	int		type;
+	int		dot;
 }					t_pars;
 
 int	ft_printf(const char *str, ...);
