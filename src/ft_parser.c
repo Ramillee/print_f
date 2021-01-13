@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/13 18:23:29 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/13 23:40:53 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 			st_pars->width = num;
 		else
 		{
-			st_pars->width != -1 ? st_pars->width = num * -1 : -1;
+			st_pars->width  = num * -1;
 			st_pars->minus = 1;
 		}
 		i++;
@@ -137,5 +137,5 @@ int parser(const char *str,va_list argptr)
 	// printf("dot -> %d\n",st_pars.dot);
 	// printf("----------------------------------\n");
 	count = line_processing(&st_pars,argptr);
-	return (text_shift);
+	return (count);
 }

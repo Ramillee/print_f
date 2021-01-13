@@ -1,14 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/10 17:04:24 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/13 19:54:51 by atweek           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// /* ************************************************************************** */
+// /*                                                                            */
+// /*                                                        :::      ::::::::   */
+// /*   main.c                                             :+:      :+:    :+:   */
+// /*                                                    +:+ +:+         +:+     */
+// /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
+// /*                                                +#+#+#+#+#+   +#+           */
+// /*   Created: 2021/01/10 17:04:24 by atweek            #+#    #+#             */
+// /*   Updated: 2021/01/13 23:30:41 by atweek           ###   ########.fr       */
+// /*                                                                            */
+// /* ************************************************************************** */
 
 
 #include <stdio.h>
@@ -17,63 +17,57 @@
 
 // int main(void)
 // {
-// 	// ft_printf("|%*.s|\n", 20, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	// printf("|%*.s|\n", 20, "1234567890123fsfbdfbdfvbbdvbvb");
-
-// 	ft_printf("%5c\n",'a');
-// 	printf("%5c\n",'a');
-
-// 	// ft_printf("|%10.0s|\n","abcde");
-// 	// printf("|%10.0s|\n","abcde");
+// 	ft_printf("|%*c|\n",  -40, 'a');
+// 	printf("|%*c|\n",  -40, 'a');
 // }
 
-// #include "libftprintf.h"
-// #include <stdio.h>
+// // #include "libftprintf.h"
+// // #include <stdio.h>
 
-// void	check_res(int a, int b)
-// {
-//     printf("return value: ");
-// 	a == b ? printf("\033[0;32m") : printf("\033[0;31m");
-// 	a == b ? printf("OK: ") : printf("KO: ");
-// 	printf("\033[0m");	
-// 	printf("yours = %d, expected = %d\n\n", a, b);
-// }
+// // void	check_res(int a, int b)
+// // {
+// //     printf("return value: ");
+// // 	a == b ? printf("\033[0;32m") : printf("\033[0;31m");
+// // 	a == b ? printf("OK: ") : printf("KO: ");
+// // 	printf("\033[0m");	
+// // 	printf("yours = %d, expected = %d\n\n", a, b);
+// // }
 
 
 int main(void)
 {
 
-// 	printf("\n--------------Check for s-------------\n");
-// 	printf("|%8s|\n", "abra");
-// 	ft_printf("|%8s|\n", "abra");
-// 	printf("|%-8s|\n", "abrafdefgbr");
-// 	ft_printf("|%-8s|\n", "abrafdefgbr");
-// 	printf("|%8s|\n", "abra");
-// 	ft_printf("|%8s|\n", "abra");
-// 	printf("|%8s|\n", "abrafdefgbr");
-// 	ft_printf("|%8s|\n", "abrafdefgbr");
-// 	ft_printf("|%*.*s|\n", 20, 5, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%*.*s|\n", 20, 5,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%-*.*s|\n", 20, 5, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%-*.*s|\n", 20, 5, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%.*s|\n",  5, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%.*s|\n",  5, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%*.s|\n", 20, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%.s|\n",  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%.s|\n",  "1234567890123fsfbdfbdfvbbdvbvb");
-// ft_printf("|%*s|\n",  40, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%*s|\n",  40, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%-*.0s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%-*.0s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%*.1s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%*.1s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
-// 	ft_printf("|%-*.*s|\n", 2, 20, "1234567890123fsfbdfbdfvbbdvbvb");
-// 	printf("|%-*.*s|\n", 2, 20, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("\n--------------Check for s-------------\n");
+	printf("|%8s|\n", "abra");
+	ft_printf("|%8s|\n", "abra");
+	printf("|%-8s|\n", "abrafdefgbr");
+	ft_printf("|%-8s|\n", "abrafdefgbr");
+	printf("|%8s|\n", "abra");
+	ft_printf("|%8s|\n", "abra");
+	printf("|%8s|\n", "abrafdefgbr");
+	ft_printf("|%8s|\n", "abrafdefgbr");
+	ft_printf("|%*.*s|\n", 20, 5, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%*.*s|\n", 20, 5,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%-*.*s|\n", 20, 5, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%-*.*s|\n", 20, 5, "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%.*s|\n",  5, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%.*s|\n",  5, "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%*.s|\n", 20, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%.s|\n",  "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%.s|\n",  "1234567890123fsfbdfbdfvbbdvbvb");
+ft_printf("|%*s|\n",  40, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%*s|\n",  40, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%-*.s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%-*.0s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%-*.0s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%*.1s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%*.1s|\n", 20,  "1234567890123fsfbdfbdfvbbdvbvb");
+	ft_printf("|%-*.*s|\n", 2, 20, "1234567890123fsfbdfbdfvbbdvbvb");
+	printf("|%-*.*s|\n", 2, 20, "1234567890123fsfbdfbdfvbbdvbvb");
 	// char *p = NULL;
 	// ft_printf("|%*s|\n",  40, p);
 	// printf("|%*s|\n",  40, p);
@@ -112,29 +106,29 @@ printf("\n--------------Check for c-------------\n");
 	printf("|%-*c|\n", 1,'a');
 	ft_printf("|%-*c|\n", 0,   'a');
 	printf("|%-*c|\n", 0,'a');
-	printf("|%.c|\n", 'a');
-	ft_printf("|%.c|\n", 'a');
-	ft_printf("|%-.c|\n", 'a');
-	printf("|%-.c|\n", 'a');
-	ft_printf("|%0.c|\n", 'a');
+	// printf("|%.c|\n", 'a');
+	// ft_printf("|%.c|\n", 'a');
+	// ft_printf("|%-.c|\n", 'a');
+	// printf("|%-.c|\n", 'a');
+	// ft_printf("|%0.c|\n", 'a');
 	// printf("|%0.c|\n", 'a');
 	// ft_printf("|%09c|\n", 'a');
 	// printf("|%09c|\n", 'a');
 	// ft_printf("|%0.*c|\n", 3,'a');
 	// printf("|%0.*c|\n", 3, 'a');
-	// printf("\n--------------Check with negative width for c-------------\n");
-	// ft_printf("|%*c|\n",  -40, 'a');
-	// printf("|%*c|\n",  -40, 'a');
-	// ft_printf("|%*c|\n",  -1, 'a');
-	// printf("|%*c|\n",-1,   'a');
-	// ft_printf("|%-*c|\n",0,   'a');
-	// printf("|%-*c|\n",0, 'a');
-	// ft_printf("|%-*c|\n",  -40, 'a');
-	// printf("|%-*c|\n",  -40, 'a');
-	// ft_printf("|%*c|\n",  -5, 'a');
-	// printf("|%*c|\n", -5, 'a');
-	// ft_printf("|%-*c|\n", -5,   'a');
-	// printf("|%-*c|\n", -5,'a');
+	printf("\n--------------Check with negative width for c-------------\n");
+	ft_printf("|%*c|\n",  -40, 'a');
+	printf("|%*c|\n",  -40, 'a');
+	ft_printf("|%*c|\n",  -1, 'a');
+	printf("|%*c|\n",-1,   'a');
+	ft_printf("|%-*c|\n",0,   'a');
+	printf("|%-*c|\n",0, 'a');
+	ft_printf("|%-*c|\n",  -40, 'a');
+	printf("|%-*c|\n",  -40, 'a');
+	ft_printf("|%*c|\n",  -5, 'a');
+	printf("|%*c|\n", -5, 'a');
+	ft_printf("|%-*c|\n", -5,   'a');
+	printf("|%-*c|\n", -5,'a');
 
 	// printf("\n--------------Check for empty c-------------\n");
 	// ft_printf("|%*c|\n",  40, '\0');
