@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRC = src/ft_printf.c src/ft_parser.c src/ft_processing.c src/ft_str_writer.c
+SRC = src/ft_printf.c src/ft_parser.c src/ft_processing.c src/ft_str_writer.c src/ft_num_writer.c
 
 HEADER = src/ft_printf.h
 

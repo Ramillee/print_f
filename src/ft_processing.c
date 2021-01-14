@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:33:51 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/13 20:04:59 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/14 16:39:16 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		line_processing(t_pars *st_pars, va_list argptr)
 		count = s_processing(st_pars,argptr);
 	// if (st_pars->type == 'p')
 	// 	//p
-	// if ((st_pars->type == 'd') || st_pars->type == 'i')
-	// 	//di
+	if ((st_pars->type == 'd') || st_pars->type == 'i')
+		count = d_i_processing(st_pars,argptr);
 	// if ((st_pars->type == 'X') || (st_pars->type == 'x'))
 	// 	//Xx
 	// if (st_pars->type == 'u')
@@ -43,7 +43,7 @@ int		c_processing(t_pars *st_pars, va_list argptr)
 	char	c;
 	
 	i = 0;
-	c = va_arg(argptr,int);
+	c = va_arg(argptr,unsigned int);
 	// if (st_pars->width == -1)
 	// 	return(write(1,&c,1));
 	// else if (st_pars->minus == 1)

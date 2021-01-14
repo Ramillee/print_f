@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/13 23:40:53 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/14 18:44:07 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,7 @@ int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 	else if (ft_isdigit(str[i]))
 		st_pars->width = ft_atoi(&str[i]);
 	while (ft_isdigit(str[i]))
-	{
 		i++;
-	}
 	return (i);
 }
 

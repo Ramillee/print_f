@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:48:01 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/13 23:21:03 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/14 15:52:43 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int pre_parser(const char *str,va_list argptr)
 			count += write(1,&str[i++],1);
 		else
 		{
-			count = parser(&str[i],argptr);
+			count += parser(&str[i],argptr);
 			while (ft_isalpha(str[i]) != 1)
 				i++;
 			i++;
@@ -43,7 +43,8 @@ int		ft_printf(const char *str, ...)
 	va_list argptr;
 	va_start (argptr, str);
 	//-------------
-	
+	if (str == NULL)
+		return(write(1,"(null)",6));
 	count = pre_parser(str,argptr);
 	
 	//-------------

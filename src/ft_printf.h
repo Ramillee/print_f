@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:55:23 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/13 17:34:55 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/14 16:40:13 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ int check_prec(t_pars *st_pars,va_list argptr,const char *str);
 int line_processing(t_pars *st_pars, va_list argptr);
 int		c_processing(t_pars *st_pars, va_list argptr);
 int		s_processing(t_pars *st_pars, va_list argptr);
+int		d_i_processing(t_pars *st_pars, va_list argptr);
