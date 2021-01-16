@@ -15,7 +15,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) src/ft_printf.h
+$(NAME): $(OBJ) $(HEADER)
 	make -C libft/
 	ar rcs $(NAME) $(OBJ) libft/*.o
 

@@ -6,7 +6,7 @@
 // // /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 // // /*                                                +#+#+#+#+#+   +#+           */
 // // /*   Created: 2021/01/10 17:04:24 by atweek            #+#    #+#             */
-// // /*   Updated: 2021/01/13 23:30:41 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/16 05:24:23 by atweek           ###   ########.fr       */
 // // /*                                                                            */
 // // /* ************************************************************************** */
 
@@ -17,9 +17,38 @@
 
 int main(void)
 {
-	ft_printf("|%8.5i|\n",  43);
-	printf("|%8.5i|\n",  43);
+	char *str = "%-5i";
+	int i = -2562;
+	int count = 0;
+	count = ft_printf(str,i);
+	write(1,"\n",1);
+	ft_putnbr_fd(count,1);
+	write(1,"\n",1);
+	count = 0;
+	count = printf(str,i);
+	write(1,"\n",1);
+	ft_putnbr_fd(count,1);
+	write(1,"\n",1);
 }
+
+
+
+// int main()
+// {
+//     char    str[] = "%c";
+//     char    a = NULL;
+//     printf("Мой:\n");
+//     int d1 = ft_printf(str, a);
+//     printf("Не мой:\n");
+//     int d2 = printf(str, a);
+//     printf("my len = %d\nnot my len = %d", d1, d2);
+// }
+
+// int main(void)
+// {
+// 	ft_printf("|%3.7i|\n",  34);
+// 	printf("|%3.7i|\n",  34);
+// }
 
 // #include "libftprintf.h"
 // #include <stdio.h>
