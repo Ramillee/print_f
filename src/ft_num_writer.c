@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 16:22:00 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/16 05:33:04 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/17 15:41:57 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,58 +35,37 @@ static int	ft_intlen(int num)
 	return (len);
 }
 
-
-// int write_zero(int len)
-// {
-// 	int i;
-	
-// 	i = 0;
-// 	while (i++ < len)
-// 		write(1,"0",1);
-// 	return (len);
-// }
-
-// int write_space(int len)
-// {
-// 	int i;
-// 	int count;
-	
-// 	count = 0;
-// 	i = 0;
-// 	while (i++ < len)
-// 		count += write(1," ",1);
-// 	return(len);
-// }
-
 int ft_minus_flag(int num,int numlen,t_pars *st_pars)
 {
 	int count;
 	int i;
-	int module_num;
+	// int module_num;
 
 	// module_num = (num < 0) ? num * -1 : num;
 	i = 0;
 	count = 0;
-	// if (st_pars->width <= numlen)
-	// {
-	// 	ft_putnbr_fd(num,1);
-	// 	return (numlen);
-	// }
+	if (num == 0 && st_pars->prec == 0)
+	{
+		while (i++ < st_pars->width)
+			count += write(1," ",1);
+		return(count);
+	}
 	if (num < 0)
 	{
-		// num *= -1;
+		num *= -1;
 		count += write(1,"-",1);
-		i++;
+		// i++;
 	}
-	while (i < (st_pars->prec - numlen) && (st_pars->prec != -1))
+	
+	while (i < (st_pars->prec - ft_intlen(num)) && (st_pars->prec != -1))
 	{
 		count += write(1,"0",1);
 		i++;	
 	}
-	ft_putnbr_fd(module_num,1);
-	count += ft_intlen(module_num); //хрень
+	ft_putnbr_fd(num,1);
+	count += ft_intlen(num); //хрень 
 	i += numlen;
-	while (i++ < st_pars->width)
+	while (i < st_pars->width && i++)
 		count += write(1," ",1);
 	return (count);
 }
@@ -95,36 +74,42 @@ int is_prec(int num,int numlen,t_pars *st_pars)
 {
 	int count;
 	int i;
+	int flag;
 
 	i = 0;
 	count = 0;
-	st_pars->width = (num < 0) ? st_pars->width - 1: st_pars->width;
-	if (st_pars->prec < numlen)
+	flag = (num < 0) ? 1 : 0;
+	if (num == 0 && st_pars->prec == 0)
 	{
-		ft_putnbr_fd(num,1);
-		return (numlen);
+		while (i++ < st_pars->width)
+			count += write(1, " ", 1);
+		return (count);
 	}
-	while ((i < st_pars->width - st_pars->prec) && st_pars->width != -1)
+	while ((i < st_pars->width - st_pars->prec - flag) && 
+						(i < st_pars->width - numlen) && st_pars->width != -1)
 	{
-		count += write(1," ",1);
-		i ++;
+		count += write(1, " ", 1);
+		i++;
 	}
 	i = 0;
 	if (num < 0)
 	{
 		num *= -1;
-		count += write(1,"-",1);
+		count += write(1, "-", 1);
 		st_pars->prec += 1;
-		// st_pars->prec++;
 	}
 	while (i < (st_pars->prec - numlen) && (st_pars->prec != -1))
 	{
 		count += write(1,"0",1);
 		i++;
 	}
+	if (st_pars->prec < numlen)
+	{
+		ft_putnbr_fd(num,1);
+		return (ft_intlen(num) + count);
+	}
 	ft_putnbr_fd(num,1);
-	count += numlen;
-	i += numlen;
+	count += ft_intlen(num);
 	return (count);
 }
 
@@ -144,11 +129,11 @@ int ft_flag_null(int num,int numlen,t_pars *st_pars)
 	}
 	while (i < st_pars->width - numlen && st_pars->width != -1)
 	{
-		write(1,"0",1);
+		count += write(1,"0",1);
 		i ++;	
 	}
 	ft_putnbr_fd(num,1);
-	count += numlen;
+	count += ft_intlen(num);
 	return (count);
 }
 

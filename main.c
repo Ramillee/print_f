@@ -17,8 +17,8 @@
 
 int main(void)
 {
-	char *str = "%-5i";
-	int i = -2562;
+	char *str = "%8.3i";
+	int i = -8375;
 	int count = 0;
 	count = ft_printf(str,i);
 	write(1,"\n",1);
