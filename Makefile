@@ -2,16 +2,17 @@ NAME = libftprintf.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -I.
 
-SRC = src/ft_printf.c src/ft_parser.c src/ft_processing.c src/ft_str_writer.c src/ft_num_writer.c
+SRC = src/ft_printf.c src/ft_parser.c src/ft_processing.c src/ft_str_writer.c src/ft_num_writer.c \
+	src/ft_num_writer_utils.c src/p_processing.c
 
 HEADER = src/ft_printf.h
 
 OBJ = $(SRC:.c=.o)
 
 %.o:%.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 

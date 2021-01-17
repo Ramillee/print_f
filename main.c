@@ -17,18 +17,19 @@
 
 int main(void)
 {
-	char *str = "%8.3i";
-	int i = -8375;
-	int count = 0;
-	count = ft_printf(str,i);
-	write(1,"\n",1);
-	ft_putnbr_fd(count,1);
-	write(1,"\n",1);
-	count = 0;
-	count = printf(str,i);
-	write(1,"\n",1);
-	ft_putnbr_fd(count,1);
-	write(1,"\n",1);
+	// char *str = "%%";
+	// // int i = ;
+	// int count = 0;
+	// count = ft_printf(str);
+	// write(1,"\n",1);
+	// ft_putnbr_fd(count,1);
+	// write(1,"\n",1);
+	// count = 0;
+	// count = printf(str);
+	// write(1,"\n",1);
+	// ft_putnbr_fd(count,1);
+	// write(1,"\n",1);
+	ft_printf("%05%");
 }
 
 

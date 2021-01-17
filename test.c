@@ -2,10 +2,10 @@
 
 int main(void)
 {
-	char *str = "%-10.5d\n";
-	int i = -5;
+	//char *str = "%-10.5d\n";
+	//int i = -5;
 	//ft_printf(str,i);
-	printf(str,i);
+	printf("%%");
 }
 
 // 	count = 0;
