@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 20:42:54 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/17 20:16:42 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/18 11:17:07 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,10 @@ int	s_processing(t_pars *st_pars, va_list argptr)
 	int		i;
 	char	*str;
 	int		strlen;
-	int		all_len;
 	int		count;
 
 	count = 0;
 	i = 0;
-	all_len = 0;
 	if (st_pars->type == 37)
 		str = "%";
 	else

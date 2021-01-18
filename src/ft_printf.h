@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:55:23 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/17 20:34:19 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/18 11:59:52 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,4 @@ int					d_i_processing(t_pars *st_pars, va_list argptr);
 int					ft_intlen(int num);
 int					p_processing(t_pars *st_pars, va_list argptr);
 int					num_zero(t_pars *st_pars);
+char  				*hex_convert(int num, int flag);

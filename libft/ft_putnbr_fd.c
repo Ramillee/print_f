@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 15:05:51 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/16 00:45:07 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/18 11:18:29 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	ft_putnbr_fd(int nb, int fd)
 {
 	unsigned int	nbr;
-	int count;
 
-	count = 0;
 	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);
