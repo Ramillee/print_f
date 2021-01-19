@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 20:33:05 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/19 23:06:18 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/20 02:16:08 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int hex_intlen(int num)
 
 int hex_convert(unsigned int hex,int len,t_pars *st_pars)
 {
-	int div;
 	int count;
 	int mod;
 	char str[len + 1];
@@ -37,9 +36,10 @@ int hex_convert(unsigned int hex,int len,t_pars *st_pars)
 		str[i++] = (st_pars->type == 'X') ? "0123456789ABCDEF"[mod] :
 										"0123456789abcdef"[mod];
 	}
-	str[i] = '\0';
-	while (i > 0)
-		write(1,&str[i--],1);
+	str[i--] = '\0';
+	while (i >= 0)
+		count += write(1,&str[i--],1);
+	return (count);
 }
 
 int x_processing(t_pars *st_pars, va_list argptr)
@@ -50,9 +50,9 @@ int x_processing(t_pars *st_pars, va_list argptr)
 	int len;
 	
 	i = 0;
+	hex = va_arg(argptr, unsigned int);
 	if (hex == 0)
 		return (write(1,"0",1));
-	hex = va_arg(argptr, unsigned int);
 	len = hex_intlen(hex);
 	while (i < st_pars->width - len && (i < st_pars->width - st_pars->prec))
 	{
