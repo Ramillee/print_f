@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 20:43:14 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/20 21:45:02 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/20 22:48:47 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int p_processing(t_pars *st_pars, va_list argptr)
 	// 		count += write(1," ", 1);
 	// 	return (count);
 	// }
-	if ((st_pars->prec == 0 || (st_pars->prec == -1  && st_pars->dot == 1)))
-		return (write(1,"0x",2));
+	// if ((st_pars->prec == 0 || (st_pars->prec == -1  && st_pars->dot == 1)))
+	// 	return (write(1,"0x",2));
 	if (st_pars->prec != -1 && st_pars->zero == 1)
 		st_pars->zero = -1;
 	if (st_pars->prec == -1)
