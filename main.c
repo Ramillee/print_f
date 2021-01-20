@@ -29,7 +29,8 @@ int main(void)
 	// write(1,"\n",1);
 	// ft_putnbr_fd(count,1);
 	// write(1,"\n",1);
-	ft_printf("%x",18);
+	ft_printf("%.5p\n",NULL);
+	printf("%.5p\n",NULL);
 }
 
 

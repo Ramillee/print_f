@@ -10,6 +10,6 @@ int hex_intlen(int num)
 
 int main(void)
 {
-	printf("%10.5\n",);
+	printf("%x\n",);
 	printf("%d",hex_intlen(1));
 }
