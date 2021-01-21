@@ -17,6 +17,12 @@
 
 int main(void)
 {
+	char a1 = 'a';
+	char a2 = 'b';
+	char a3 = 'c';
+	char a4 = 'd';
+
+	
 	// char *str = "%%";
 	// // int i = ;
 	// int count = 0;
@@ -28,9 +34,9 @@ int main(void)
 	// count = printf(str);
 	// write(1,"\n",1);
 	// ft_putnbr_fd(count,1);
-	// write(1,"\n",1);
-	ft_printf("%2.9p\n",&1234);
-	printf("%2.9p\n",&1234);
+	// write(1,"\n",1);p%-70p%-70p%-70p&a2,&a3,&a4
+	ft_printf("%-70p\n",&a1);
+	printf("%-70p\n",&a1);
 }
 
 

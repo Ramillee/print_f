@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:33:51 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/20 20:46:38 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/21 17:35:18 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int		line_processing(t_pars *st_pars, va_list argptr)
 	if (st_pars->type == 'p')
 		count = p_processing(st_pars, argptr);
 	if ((st_pars->type == 'x') || (st_pars->type == 'X'))
+		count = x_processing(st_pars, argptr);
+	if (st_pars->type == 'u')
 		count = x_processing(st_pars, argptr);
 	return (count);
 }

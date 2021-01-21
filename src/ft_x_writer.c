@@ -6,14 +6,14 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 20:33:05 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/20 20:42:26 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/21 17:45:53 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-int hex_intlen(int num)
+int hex_intlen(unsigned long long int num)
 {
 	
 	if (num <= 0)
@@ -46,7 +46,7 @@ int hex_convert(unsigned int hex,int len,t_pars *st_pars)
 	return (count);
 }
 
-int x_processing_minus(t_pars *st_pars,int len, int hex)
+int x_processing_minus(t_pars *st_pars,int len, int num)
 {
 	int count;
 	int i;
@@ -56,8 +56,13 @@ int x_processing_minus(t_pars *st_pars,int len, int hex)
 	i = 0;
 	while (i++ < st_pars->prec - len)
 		count +=write(1,"0",1);
-	count += hex_convert(hex,len,st_pars);
-	// i += len;
+	if (st_pars->type == 'u')
+	{
+		ft_putnbr_fd(num,1);
+		count += len;
+	}
+	else
+		count += hex_convert(num,len,st_pars);
 	i = 0;
 	while (i < st_pars->width - len && (i < st_pars->width - st_pars->prec))
 	{
@@ -73,14 +78,17 @@ int x_processing_minus(t_pars *st_pars,int len, int hex)
 int x_processing(t_pars *st_pars, va_list argptr)
 {
 	int				i;
-	unsigned int	hex;
+	unsigned int	num;
 	int count;
 	int len;
 	
 	i = 0;
 	count = 0;
-	hex = va_arg(argptr, unsigned int);
-	len = hex_intlen(hex);
+	num = va_arg(argptr, unsigned int);
+	if (st_pars->type == 'u')
+		len = ft_intlen(num);
+	else
+		len = hex_intlen(num);
 	if ((st_pars->prec == 0 || (st_pars->prec == -1  && st_pars->dot == 1)))
 	{
 		while (i++ < st_pars->width)
@@ -97,10 +105,8 @@ int x_processing(t_pars *st_pars, va_list argptr)
 	st_pars->prec = (st_pars->prec < len) ? st_pars->prec = 0 : st_pars->prec;
 	if (st_pars->minus == 1)
 	{
-		return (x_processing_minus(st_pars,len,hex));
+		return (x_processing_minus(st_pars,len,num));
 	}
-	// if (hex == 0)
-	// 	return (x_processing_zero(st_pars))
 	while (i < st_pars->width - len && (i < st_pars->width - st_pars->prec))
 	{
 		if (st_pars->zero == 1)
@@ -112,7 +118,13 @@ int x_processing(t_pars *st_pars, va_list argptr)
 	i = 0;
 	while (i++ < st_pars->prec - len)
 		count += write(1,"0",1);
-	count += hex_convert(hex,len,st_pars);
+	if (st_pars->type == 'u')
+	{
+		ft_putnbr_fd(num,1);
+		count += len;
+	}
+	else
+		count += hex_convert(num,len,st_pars);
 	return (count);
 }
 
