@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 20:43:14 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/21 18:00:43 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 03:47:46 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,10 @@ int p_processing_minus(t_pars *st_pars,int len, unsigned long long int pointer)
 	// 	return (write(1,"0x",2));
 	count = 0;
 	i = 0;
+	count += write(1,"0x",2);
 	while (i++ < st_pars->prec - len)
 		count +=write(1,"0",1);
-	count += hex_convert(pointer,len,st_pars);
+	count += p_convert(pointer,len,st_pars);
 	// i += len;
 	i = 0;
 	while (i < st_pars->width - len && (i < st_pars->width - st_pars->prec))
@@ -108,6 +109,7 @@ int p_processing(t_pars *st_pars, va_list argptr)
 	st_pars->prec = (st_pars->prec < len) ? st_pars->prec = 0 : st_pars->prec;
 	if (st_pars->minus == 1)
 	{
+		// st_pars->width = (st_pars->width < 0) ? st_pars->width * 1 : st_pars->width;
 		return (p_processing_minus(st_pars,len,pointer));
 	}
 	// if (hex == 0)

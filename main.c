@@ -14,13 +14,14 @@
 #include <stdio.h>
 #include "src/ft_printf.h"
 #include "libft/libft.h"
+#include <limits.h>
 
 int main(void)
 {
-	char a1 = 'a';
-	char a2 = 'b';
-	char a3 = 'c';
-	char a4 = 'd';
+	// char a1 = 'a';
+	// char a2 = 'b';
+	// char a3 = 'c';
+	// char a4 = 'd';
 
 	
 	// char *str = "%%";
@@ -35,8 +36,8 @@ int main(void)
 	// write(1,"\n",1);
 	// ft_putnbr_fd(count,1);
 	// write(1,"\n",1);p%-70p%-70p%-70p&a2,&a3,&a4
-	ft_printf("%-70p\n",&a1);
-	printf("%-70p\n",&a1);
+	ft_printf("%.*i\n",-6,-3);
+	printf("%.*i",-6,-3);
 }
 
 

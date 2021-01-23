@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:55:23 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/21 15:34:42 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 04:57:04 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ int					num_zero(t_pars *st_pars);
 int hex_convert(unsigned int hex,int len,t_pars *st_pars);
 int hex_intlen(unsigned long long int num);
 int p_processing(t_pars *st_pars, va_list argptr);
+int	ft_longlen(unsigned long long int num);
+int ptr_intlen(unsigned long long int num);
 
 

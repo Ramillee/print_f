@@ -6,17 +6,18 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 16:22:00 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/17 18:38:09 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 05:03:49 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-int	ft_minus_flag(int num, int numlen, t_pars *st_pars)
+int	ft_minus_flag(long long num, int numlen, t_pars *st_pars)
 {
 	int count;
 	int i;
+	// long long long_int;
 
 	i = 0;
 	count = 0;
@@ -30,7 +31,7 @@ int	ft_minus_flag(int num, int numlen, t_pars *st_pars)
 	while (i < (st_pars->prec - ft_intlen(num)) && (st_pars->prec != -1) && ++i)
 		count += write(1, "0", 1);
 	ft_putnbr_fd(num, 1);
-	count += ft_intlen(num);
+	count += ft_longlen(num);
 	i += numlen;
 	while (i < st_pars->width && i++)
 		count += write(1, " ", 1);
@@ -109,7 +110,7 @@ int	d_i_processing(t_pars *st_pars, va_list argptr)
 	count = 0;
 	num = va_arg(argptr, int);
 	numlen = ft_intlen(num);
-	if (st_pars->dot == 1 && st_pars->prec == -1)
+	if (st_pars->dot == 1 && st_pars->prec == -1 && st_pars->prec < 0)
 		st_pars->prec = 0;
 	if (st_pars->minus == 1 && st_pars->zero == 1)
 		st_pars->zero = -1;

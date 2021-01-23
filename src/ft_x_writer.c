@@ -6,12 +6,22 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 20:33:05 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/21 17:45:53 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 04:12:32 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
+
+void ft_putnbr_unsigned(int fd,unsigned int nb)
+{
+	unsigned int	nbr;
+	
+	nbr = (unsigned int)nb;
+	if (nbr >= 10)
+		ft_putnbr_unsigned(fd, nbr / 10);
+	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+}
 
 int hex_intlen(unsigned long long int num)
 {
@@ -58,7 +68,7 @@ int x_processing_minus(t_pars *st_pars,int len, int num)
 		count +=write(1,"0",1);
 	if (st_pars->type == 'u')
 	{
-		ft_putnbr_fd(num,1);
+		ft_putnbr_unsigned(1,num);
 		count += len;
 	}
 	else
@@ -86,7 +96,7 @@ int x_processing(t_pars *st_pars, va_list argptr)
 	count = 0;
 	num = va_arg(argptr, unsigned int);
 	if (st_pars->type == 'u')
-		len = ft_intlen(num);
+		len = ft_longlen((unsigned long long int) num);
 	else
 		len = hex_intlen(num);
 	if ((st_pars->prec == 0 || (st_pars->prec == -1  && st_pars->dot == 1)))
@@ -120,7 +130,7 @@ int x_processing(t_pars *st_pars, va_list argptr)
 		count += write(1,"0",1);
 	if (st_pars->type == 'u')
 	{
-		ft_putnbr_fd(num,1);
+		ft_putnbr_unsigned(1,num);
 		count += len;
 	}
 	else
