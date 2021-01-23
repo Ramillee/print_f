@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 14:33:51 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 05:58:28 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 19:02:53 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		line_processing(t_pars *st_pars, va_list argptr)
 	else if (st_pars->type == 'u')
 		count = x_processing(st_pars, argptr);
 	else
-		return(-1);
+		return (-1);
 	return (count);
 }
 

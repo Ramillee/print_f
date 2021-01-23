@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 16:22:00 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 05:08:34 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 15:42:41 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	ft_minus_flag(long long num, int numlen, t_pars *st_pars)
 {
 	int count;
 	int i;
-	// long long long_int;
 
 	i = 0;
 	count = 0;

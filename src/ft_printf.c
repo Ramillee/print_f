@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 15:48:01 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 06:32:53 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 18:59:42 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	pre_parser(const char *str, va_list argptr)
 {
-	int i;
-	int count;
+	int		i;
+	int		count;
 	t_pars	st_pars;
 
 	i = 0;

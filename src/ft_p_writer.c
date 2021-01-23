@@ -6,15 +6,14 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 20:43:14 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 03:47:46 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 18:53:47 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "../libft/libft.h"
 
-
-int ptr_intlen(unsigned long long int num)
+int	ptr_intlen(unsigned long long int num)
 {
 	int len;
 
@@ -22,20 +21,21 @@ int ptr_intlen(unsigned long long int num)
 	while (num > 0)
 	{
 		num /= 16;
-		len ++;
+		len++;
 	}
+	len = (len == 0) ? 3 : len + 2;
 	return (len);
 }
 
-int p_convert(unsigned long long int hex,int len,t_pars *st_pars)
+int	p_convert(unsigned long long int hex, int len, t_pars *st_pars)
 {
-	int count;
-	unsigned long long int mod;
-	char str[len + 1];
-	int 		i;
-	
+	int						count;
+	unsigned long long int	mod;
+	char					str[len + 1];
+	int						i;
+
 	if (hex == 0)
-		return (write(1,"0",1));
+		return (write(1, "0", 1));
 	i = 0;
 	count = 0;
 	while (hex > 0)
@@ -47,85 +47,58 @@ int p_convert(unsigned long long int hex,int len,t_pars *st_pars)
 	}
 	str[i--] = '\0';
 	while (i >= 0)
-		count += write(1,&str[i--],1);
+		count += write(1, &str[i--], 1);
 	return (count);
 }
 
-int p_processing_minus(t_pars *st_pars,int len, unsigned long long int pointer)
+int	p_processing_minus(t_pars *st_pars, int len, unsigned long long int pointer)
 {
 	int count;
 	int i;
-	// len = hex_intlen(hex);
-	// len = (len == 0) ? 1 : len;
-	// if ((st_pars->prec == 0 || (st_pars->prec == -1  && st_pars->dot == 1)))
-	// 	return (write(1,"0x",2));
+
 	count = 0;
 	i = 0;
-	count += write(1,"0x",2);
+	count += write(1, "0x", 2);
 	while (i++ < st_pars->prec - len)
-		count +=write(1,"0",1);
-	count += p_convert(pointer,len,st_pars);
-	// i += len;
+		count += write(1, "0", 1);
+	count += p_convert(pointer, len, st_pars);
 	i = 0;
 	while (i < st_pars->width - len && (i < st_pars->width - st_pars->prec))
 	{
 		if (st_pars->zero == 1)
-			count += write(1,"0",1);
+			count += write(1, "0", 1);
 		else
-			count +=write(1," ",1);
+			count += write(1, " ", 1);
 		i++;
 	}
 	return (count);
 }
 
-int p_processing(t_pars *st_pars, va_list argptr)
+int	p_processing(t_pars *st_pars, va_list argptr)
 {
-	int				i;
+	int					i;
 	unsigned long long	pointer;
-	int count;
-	int len;
-	
+	int					count;
+	int					len;
+
 	i = 0;
 	count = 0;
 	pointer = va_arg(argptr, unsigned long long int);
 	len = ptr_intlen(pointer);
-	len = (len == 0) ? 3 : len + 2;
-	if ((st_pars->prec == 0 || (st_pars->prec == -1  && st_pars->dot == 1)))
+	if ((st_pars->prec == 0 || (st_pars->prec == -1 && st_pars->dot == 1)))
 	{
 		while (i++ < st_pars->width - 2)
-			count += write(1," ", 1);
-		count += write(1,"0x",2);
+			count += write(1, " ", 1);
+		count += write(1, "0x", 2);
 		return (count);
 	}
-	// len = (len == 0) ? 3 : len;
-	// if ((st_pars->prec == -1 || (st_pars->prec == -1  && st_pars->dot == 1)))
-	// 	return (write(1,"0x",2));
-	if (st_pars->prec != -1 && st_pars->zero == 1)
-		st_pars->zero = -1;
-	if (st_pars->prec == -1)
-		st_pars->prec = 0;
-	if (st_pars->width == -1)
-		st_pars->width = 0;
-	st_pars->prec = (st_pars->prec < len) ? st_pars->prec = 0 : st_pars->prec;
+	preparation(st_pars, len);
 	if (st_pars->minus == 1)
-	{
-		// st_pars->width = (st_pars->width < 0) ? st_pars->width * 1 : st_pars->width;
-		return (p_processing_minus(st_pars,len,pointer));
-	}
-	// if (hex == 0)
-	// 	return (x_processing_zero(st_pars))
-	while (i < st_pars->width - len && (i < st_pars->width - st_pars->prec))
-	{
-		if (st_pars->zero == 1)
-			count += write(1,"0",1);
-		else
-			count +=write(1," ",1);
-		i++;
-	}
-	count += write(1,"0x",2);
+		return (p_processing_minus(st_pars, len, pointer));
+	count += part_write(st_pars, len);
 	i = 0;
 	while (i++ < st_pars->prec - (len - 2))
-		count += write(1,"0",1);
-	count += p_convert(pointer,len,st_pars);
+		count += write(1, "0", 1);
+	count += p_convert(pointer, len, st_pars);
 	return (count);
 }

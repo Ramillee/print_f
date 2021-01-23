@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 16:13:39 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 06:40:54 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 15:42:08 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	num_zero(t_pars *st_pars)
 
 int	ft_longlen(unsigned long long int num)
 {
-	int	len;
+	int						len;
 	unsigned long long int	i;
 
 	if (num == 0)

@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 06:03:50 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 18:59:18 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_prec(t_pars *st_pars, va_list argptr, const char *str)
 	i = 0;
 	st_pars->dot = (str[i] == '.') ? 1 : st_pars->dot;
 	(str[i] == '.') ? i++ : i;
-	if (str[i] == '*')
+	if (str[i] == '*' && ++i)
 	{
 		num = va_arg(argptr, int);
 		if (num >= 0)
@@ -54,7 +54,6 @@ int	check_prec(t_pars *st_pars, va_list argptr, const char *str)
 			st_pars->dot = -1;
 			return (2);
 		}
-		i++;
 	}
 	else if (ft_isdigit(str[i]))
 		st_pars->prec = ft_atoi(&str[i]);
@@ -64,7 +63,6 @@ int	check_prec(t_pars *st_pars, va_list argptr, const char *str)
 		i++;
 	return ((st_pars->prec >= -1) ? i : 0);
 }
-
 
 int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 {
@@ -91,7 +89,7 @@ int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 	return (i);
 }
 
-int	parser(const char *str, va_list argptr,t_pars	*st_pars)
+int	parser(const char *str, va_list argptr, t_pars *st_pars)
 {
 	int		text_shift;
 
