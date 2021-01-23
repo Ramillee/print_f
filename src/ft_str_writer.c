@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 20:42:54 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/18 11:17:07 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 06:02:39 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	s_processing(t_pars *st_pars, va_list argptr)
 	if (str == NULL)
 		str = "(null)";
 	strlen = (int)ft_strlen(str);
+	st_pars->prec = (st_pars->prec < 0) ? -1 : st_pars->prec;
 	if (st_pars->prec == -1 && st_pars->width == -1 && st_pars->dot == 1)
 		return (0);
 	if (st_pars->prec == -1 && st_pars->width == -1 && st_pars->dot == -1)

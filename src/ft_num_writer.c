@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 16:22:00 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 05:03:49 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 05:08:34 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	d_i_processing(t_pars *st_pars, va_list argptr)
 	count = 0;
 	num = va_arg(argptr, int);
 	numlen = ft_intlen(num);
-	if (st_pars->dot == 1 && st_pars->prec == -1 && st_pars->prec < 0)
+	if (st_pars->dot == 1 && st_pars->prec == -1)
 		st_pars->prec = 0;
 	if (st_pars->minus == 1 && st_pars->zero == 1)
 		st_pars->zero = -1;

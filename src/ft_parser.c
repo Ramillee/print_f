@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:24:07 by atweek            #+#    #+#             */
-/*   Updated: 2021/01/23 05:06:07 by atweek           ###   ########.fr       */
+/*   Updated: 2021/01/23 06:03:50 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ int	check_prec(t_pars *st_pars, va_list argptr, const char *str)
 			st_pars->prec = num;
 		else
 		{
-			st_pars->prec = num * -1;
-			st_pars->minus = 1;
+			st_pars->prec = num;
+			st_pars->dot = -1;
+			return (2);
 		}
 		i++;
 	}
@@ -61,8 +62,9 @@ int	check_prec(t_pars *st_pars, va_list argptr, const char *str)
 		return (i);
 	while (ft_isdigit(str[i]))
 		i++;
-	return ((st_pars->prec >= 0) ? i : 0);
+	return ((st_pars->prec >= -1) ? i : 0);
 }
+
 
 int	check_width(t_pars *st_pars, va_list argptr, const char *str)
 {
